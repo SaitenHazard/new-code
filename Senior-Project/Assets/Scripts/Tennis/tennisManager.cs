@@ -6,7 +6,7 @@ public class tennisManager : MonoBehaviour {
     public GameObject player1, player2, ball;
     private Rigidbody2D rigidPlayer1, rigidPlayer2,rb;
 
-    private float ballInitalVelocity = 0.01f;
+    private float ballInitalVelocity = 0.02f;
 
     void Start()
     {
@@ -19,8 +19,6 @@ public class tennisManager : MonoBehaviour {
 
     void invoke()
     {
-        Debug.Log(ballInitalVelocity);
-
         rb.AddForce(rb.velocity.normalized * ballInitalVelocity);
 
         ballInitalVelocity += 0.00001f;
@@ -34,7 +32,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x < 0)
             {
                 touchedPos.x = rigidPlayer1.transform.position.x;
-                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime);
+                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime*2);
             }
         }
     }
@@ -46,7 +44,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x > 0)
             {
                 touchedPos.x = rigidPlayer2.transform.position.x;
-                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime);
+                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime*2);
             }
         }
     }

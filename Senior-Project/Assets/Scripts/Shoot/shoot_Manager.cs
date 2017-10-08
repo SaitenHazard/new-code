@@ -39,7 +39,7 @@ public class shoot_Manager : MonoBehaviour {
             if(touchedPos.x<0)
             {
                 touchedPos.x = rigidPlayer1.transform.position.x;
-                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime);
+                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime*2);
             }
         }
     }
@@ -51,7 +51,7 @@ public class shoot_Manager : MonoBehaviour {
             if(touchedPos.x>0)
             {
                 touchedPos.x = rigidPlayer2.transform.position.x;
-                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime);
+                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime*2);
             }
         }
     }
