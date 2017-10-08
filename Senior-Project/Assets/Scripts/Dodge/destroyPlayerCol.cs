@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroy_bulletBullet : MonoBehaviour {
+public class destroyPlayerCol : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)
     {
-           Destroy(collision.gameObject);
+        if(collision.gameObject.tag == "Tap")
+            Destroy(collision.gameObject);
     }
 }

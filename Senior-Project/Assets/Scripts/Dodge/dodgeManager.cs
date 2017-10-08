@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class tennisManager : MonoBehaviour {
+public class dodgeManager : MonoBehaviour {
     public GameObject player1, player2, ball;
-    private Rigidbody2D rigidPlayer1, rigidPlayer2,rb;
+    private Rigidbody2D rigidPlayer1, rigidPlayer2, rb;
 
     private float thrust = 0.01f;
 
-    void Start()
-    {
+    void Start () {
         rigidPlayer1 = player1.GetComponent<Rigidbody2D>();
         rigidPlayer2 = player2.GetComponent<Rigidbody2D>();
         rb = ball.GetComponent<Rigidbody2D>();
@@ -22,7 +21,7 @@ public class tennisManager : MonoBehaviour {
         thrust += 0.01f;
         rb.AddForce(rb.velocity.normalized * Time.deltaTime * thrust * 2);
 
-        if (thrust < 0.2f)
+        if(thrust <0.2f)
             Invoke("invoke", 1f);
     }
 
@@ -33,7 +32,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x < 0)
             {
                 touchedPos.x = rigidPlayer1.transform.position.x;
-                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime*2);
+                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime * 2);
             }
         }
     }
@@ -45,7 +44,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x > 0)
             {
                 touchedPos.x = rigidPlayer2.transform.position.x;
-                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime*2);
+                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime * 2);
             }
         }
     }
@@ -93,7 +92,7 @@ public class tennisManager : MonoBehaviour {
         }
     }
 
-    void Update ()
+    void Update()
     {
         moveController();
     }
