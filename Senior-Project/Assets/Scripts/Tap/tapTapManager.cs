@@ -31,7 +31,7 @@ public class tapTapManager : MonoBehaviour {
 
     void Update()
     {
-        for (int i = 0; i < Input.touchCount; i++)
+        for (int i = 0; i < Input.touchCount && Input.touchCount>0 ; i++)
         {
             touch = Input.GetTouch(i);
             if (touch.phase.Equals(TouchPhase.Began))

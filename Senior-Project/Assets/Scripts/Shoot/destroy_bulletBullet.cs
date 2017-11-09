@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class destroy_bulletBullet : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision)

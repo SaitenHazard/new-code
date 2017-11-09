@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class shoot_Manager : MonoBehaviour {
-    public GameObject bullet;
+    public GameObject bullet1, bullet2;
     public GameObject player1, player2;
 
     private Rigidbody2D rigidPlayer1, rigidPlayer2;
@@ -23,10 +21,10 @@ public class shoot_Manager : MonoBehaviour {
             return;
         }
 
-        (Instantiate(bullet, new Vector2(rigidPlayer1.transform.position.x + 1f, rigidPlayer1.transform.position.y), Quaternion.identity))
+        (Instantiate(bullet1, new Vector2(rigidPlayer1.transform.position.x + 1f, rigidPlayer1.transform.position.y), Quaternion.identity))
         .GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0f);
 
-        (Instantiate(bullet, new Vector2(rigidPlayer2.transform.position.x - 1f, rigidPlayer2.transform.position.y), Quaternion.identity))
+        (Instantiate(bullet2, new Vector2(rigidPlayer2.transform.position.x - 1f, rigidPlayer2.transform.position.y), Quaternion.identity))
             .GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * -1, 0f);
 
         Invoke("Shoot", 0.75f);
