@@ -20,7 +20,7 @@ public class tennisManager : MonoBehaviour {
     void invoke()
     {
         thrust += 0.01f;
-        rb.AddForce(rb.velocity.normalized * Time.deltaTime * thrust * 2);
+        rb.AddForce(rb.velocity.normalized * Time.deltaTime * thrust * 4);
 
         if (thrust < 0.2f)
             Invoke("invoke", 1f);
@@ -33,7 +33,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x < 0)
             {
                 touchedPos.x = rigidPlayer1.transform.position.x;
-                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime*2);
+                rigidPlayer1.transform.position = Vector2.Lerp(rigidPlayer1.transform.position, touchedPos, Time.deltaTime*4);
             }
         }
     }
@@ -45,7 +45,7 @@ public class tennisManager : MonoBehaviour {
             if (touchedPos.x > 0)
             {
                 touchedPos.x = rigidPlayer2.transform.position.x;
-                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime*2);
+                rigidPlayer2.transform.position = Vector2.Lerp(rigidPlayer2.transform.position, touchedPos, Time.deltaTime*4);
             }
         }
     }

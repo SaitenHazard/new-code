@@ -8,12 +8,13 @@ public class timingManager : MonoBehaviour {
 
     private int pick;
     private float time;
-    private bool b = false;
+    private bool b = false, d = false;
 
     void Start () {
-        pick = Random.Range(0, 24);
+        pick = Random.Range(0, 2);
         time = Random.Range(6f, 30f);
         Invoke("Poperator", time);
+
     }
 
     void Poperator()
@@ -27,7 +28,7 @@ public class timingManager : MonoBehaviour {
         Touch touch;
         Vector2 touchedPos;
 
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && d == false)
         {
             touch = Input.GetTouch(0);
             touchedPos = Camera.main.ScreenToWorldPoint(new Vector2(touch.position.x, touch.position.y));
@@ -54,6 +55,7 @@ public class timingManager : MonoBehaviour {
                     Destroy(p2);
                 }
             }
+            d = true;
         }
 	}
 }
